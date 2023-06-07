@@ -1,4 +1,4 @@
-package day04.practice;
+package day05.practice;
 
 
 public class StudentDetails {
