@@ -1,5 +1,7 @@
 package day07.HOTS;
 
+import java.util.Scanner;
+
 //HOTS#1 : 
 //Write a Java program to simulate a ticket booking system for a movie theater. 
 //The program should ask the user for the number of tickets and the age of each ticket holder. 
@@ -13,7 +15,37 @@ package day07.HOTS;
 public class TicketPriceGenerator {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		Scanner scan = new Scanner(System.in); // creating scanner object
+		
+		System.out.print("Enter how many tickets you want: ");
+		
+		int tickets = scan.nextInt();
+		int ageArr[] = new int[tickets+1];  
+		
+		 for(int i = 1; i <= tickets; i++) {
+			 System.out.printf("The age person %d: ", i);
+			 ageArr[i] = scan.nextInt();
+		 }
+		 
+		
+		int TotolTicketPrice = 0;
+		
+		for(int element: ageArr) {
+			if(element <= 12) {
+				TotolTicketPrice += (element * 7);
+			}
+			else if(element > 12 && element <= 60 ) {
+				 TotolTicketPrice += (element * 12);
+			 }
+			else if(element > 60) {
+				TotolTicketPrice += (element * 9);
+			}
+		 }
+		
+		System.out.printf("The Total Ticket Price is $%d", TotolTicketPrice);
+		
+		
 
 	}
 
