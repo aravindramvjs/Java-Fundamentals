@@ -23,6 +23,8 @@ public class TicketPriceGenerator {
 		int tickets = scan.nextInt();
 		int ageArr[] = new int[tickets+1];  
 		
+		System.out.println("We are availing some consession for certain age ranges. So kindly enter the respective ages");
+		
 		 for(int i = 1; i <= tickets; i++) {
 			 System.out.printf("The age person %d: ", i);
 			 ageArr[i] = scan.nextInt();
@@ -31,15 +33,15 @@ public class TicketPriceGenerator {
 		
 		int TotolTicketPrice = 0;
 		
-		for(int element: ageArr) {
-			if(element <= 12) {
-				TotolTicketPrice += (element * 7);
+		for(int age: ageArr) {
+			if(age <= 12) {
+				TotolTicketPrice += (age * 7);
 			}
-			else if(element > 12 && element <= 60 ) {
-				 TotolTicketPrice += (element * 12);
+			else if(age > 12 && age <= 60 ) {
+				 TotolTicketPrice += (age * 12);
 			 }
-			else if(element > 60) {
-				TotolTicketPrice += (element * 9);
+			else if(age > 60) {
+				TotolTicketPrice += (age * 9);
 			}
 		 }
 		
