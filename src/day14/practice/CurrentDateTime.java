@@ -1,4 +1,4 @@
- package day14.practice;
+package day14.practice;
  
 import java.time.LocalDateTime;
 
@@ -12,5 +12,4 @@ public class CurrentDateTime {
 		System.out.println(timenow);
 		
 	}
-	
 }
