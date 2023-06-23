@@ -1,109 +1,115 @@
 package day13.practice;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 //Create a separate class UserValidator and a method UserValidator.
-	//validate(User user) that validate each of the attributes of the below class. 
-	//Please add the validation of id should be Positive, 
-	//name should be of minimum length 2,  
-	//use the Practice#4 rules for validating password, 
-	//use Practice#2 to validate email. Use the below User class 
+//validate(User user) that validate each of the attributes of the below class. 
+//Please add the validation of id should be Positive, 
+//name should be of minimum length 2,  
+//use the Practice#4 rules for validating password, 
+//use Practice#2 to validate email. Use the below User class 
 
 class User {
 	int id;
 	String name;
 	String password;
 	String email;
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	static void validate(User user) {
 
-	    String passwordRegx = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%^&*?]).{8,}$";
+//	validate method get user crenditals and validate using another methods
+	void validate(User user) throws IllegalArgumentException {
+		validateId(user.getId());
+		validateName(user.getName());
+		validateEmail(user.getEmail());
+		validatePassword(user.getPassword());
+		
+	}
 
-        Pattern patternPassword = Pattern.compile(passwordRegx);
-        Matcher matcherPassword = patternPassword.matcher(user.password);
+//	Id Validator => Id must be posituve numbers
+	void validateId(int id) throws IllegalArgumentException {
+		if (id <= 0) {
+			throw new IllegalArgumentException("ID should be positive.");
+		}
+	}
 
-        if (!matcherPassword.matches()) {
-            System.out.println("Password is not valid.");
-            System.out.println("The following conditions are not met:");
+//   Username Validator => username length greater than 2.
+	void validateName(String name) throws IllegalArgumentException {
+		if (name == null || name.length() < 2) {
+			throw new IllegalArgumentException("Name should have a minimum length of 2 characters.");
+		}
+	}
 
-            if (!matcherPassword.find(0)) {
-                System.out.println("* Password must contain at least one uppercase letter.");
-            }
+//  email validator checks for the presence of '@' and '.' 
+	void validateEmail(String email) throws IllegalArgumentException {
+		String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+		boolean isMatch = email.matches(emailRegex);
+		if (!isMatch) {
+			throw new IllegalArgumentException("Invalid email format.");
+		}
+	}
 
-            if (!matcherPassword.find(1)) {
-                System.out.println("* Password must contain at least one lowercase letter.");
-            }
+//  password validator must have 8 len, one lower, one upper, one digit and one speacial char
+	void validatePassword(String password) throws IllegalArgumentException {
+		String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$";
+		boolean isMatch = password.matches(passwordRegex);
+		if (!isMatch) {
+			throw new IllegalArgumentException("Invalid password format.");
+		}
+	}
 
-            if (!matcherPassword.find(2)) {
-                System.out.println("* Password must contain at least one digit.");
-            }
-
-            if (!matcherPassword.find(3)) {
-                System.out.println("* Password must contain at least one special character.");
-            }
-        } 
-        else {
-            System.out.println("Password is valid.");
-        }
-        
-        
-        String emailRegex = "^([a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,6})$";
-
-
-        Pattern patternEmail = Pattern.compile(emailRegex);
-        Matcher matcherEmail = patternEmail.matcher(user.email);
-
-        if (!matcherEmail.matches()) {
-            System.out.println("Email is not valid.");
-            System.out.println("The following conditions are not met:");
-
-            if (!matcherEmail.find(0)) {
-                System.out.println("* Email must contain a valid username.");
-            }
-
-            if (!matcherEmail.find(1)) {
-                System.out.println("* Email must contain google or yahoo etc...");
-            }
-
-            if (!matcherEmail.find(2)) {
-                System.out.println("* Email must contain a .com or .in etc...");
-            }
-        } 
-        else {
-            System.out.println("Email is valid.");
-        }
-  
-        if(user.id <= 0) System.out.println("Id must be positive number");
-	
 }
 
 public class CompleteUserValidation {
+
+	public static void main(String[] args) {
+		User user = new User();
+
+		user.setId(1);
+		user.setName("aravind");
+		user.setEmail("aravind@gmail.com");
+		user.setPassword("Aravind21");
+
+		try {
+			user.validate(user);
+			System.out.println("User Id: " + user.getId());
+			System.out.println("User Name: " + user.getName());
+			System.out.println("User Email: " + user.getEmail());
+			System.out.println("User Password: " + user.getPassword());
+			System.out.println("User is valid.");
+		} 
+		
+		catch (IllegalArgumentException e) {
+			System.out.println("User validation failed: " + e.getMessage());
+		}
+	}
 
 }

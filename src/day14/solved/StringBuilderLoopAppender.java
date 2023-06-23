@@ -1,3 +1,5 @@
+package day14.solved;
+
 public class StringBuilderLoopAppender{
 	public static void main(String[] args){
 	

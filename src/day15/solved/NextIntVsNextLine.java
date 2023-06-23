@@ -21,5 +21,6 @@ public class NextIntVsNextLine {
 		String strFromUsr = sc.nextLine();
 		System.out.println("String from user: " + strFromUsr + "After the str print");
 
+		sc.close();
 	}
 }
