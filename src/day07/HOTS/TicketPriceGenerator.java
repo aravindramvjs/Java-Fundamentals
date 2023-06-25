@@ -1,4 +1,4 @@
-package day07.HOTS;
+package day07.hots;
 
 import java.util.Scanner;
 
@@ -46,6 +46,8 @@ public class TicketPriceGenerator {
 		 }
 		
 		System.out.printf("The Total Ticket Price is $%d", TotolTicketPrice);
+		
+		scan.close();
 		
 		
 

@@ -31,7 +31,7 @@ public class PhoneNumberValidator {
 		
 		if(strphonenum.charAt(0) == 0) System.out.println("Phone Number doesn't start at 0");
 
-			
+		scan.close();
 	}
 
 }

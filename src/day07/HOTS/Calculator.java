@@ -1,4 +1,4 @@
-package day07.HOTS;
+package day07.hots;
 import java.util.Scanner;
 
 public class Calculator {

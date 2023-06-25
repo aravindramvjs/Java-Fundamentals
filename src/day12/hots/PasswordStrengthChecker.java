@@ -18,18 +18,18 @@ public class PasswordStrengthChecker {
     	
 //    	Weak: The password is less than 8 characters long.
         if (password.length() < 8) {
-            return "Weak 😟";
+            return "Weak";
         } 
         
 //      Medium: The password is 8 characters or longer and contains either at least one digit or at least one special character (non-alphanumeric).
         else if (!(PASSWORD_REGEX(password))) {
-            return "Medium 😐";
+            return "Medium";
         } 
         
         
 //      Strong: The password is 8 characters or longer, contains at least one digit, contains at least one lowercase letter, contains at least one uppercase letter, and contains at least one special character.
         else {
-            return "Strong 😃";
+            return "Strong";
         }
     }
 

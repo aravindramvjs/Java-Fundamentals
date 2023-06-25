@@ -4,8 +4,8 @@ public class DivisionPractice{
 
 class Division{
 	static void divideit(int a, int b){
-		if(b <= 0){
-		     System.out.println("Invalid Input: Denominator can not be zero are lesser than zero");
+		if(b == 0){
+		     System.out.println("Invalid Input: Denominator can not be zero");
 		}
 		else{	
 		   int result = a/b;

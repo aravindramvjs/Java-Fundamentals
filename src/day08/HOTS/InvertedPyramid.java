@@ -1,4 +1,4 @@
-package day08.HOTS;
+package day08.hots;
 
 import java.util.Scanner;
 
