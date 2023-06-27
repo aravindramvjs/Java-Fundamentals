@@ -41,6 +41,7 @@ public class CalculateDateAndTime {
 		        
 		        System.out.println("Days: " + days);
 		        System.out.println("Time: " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds");
+		        
 			}
 			catch(Exception e){
 				System.out.println("Invalid Date Format");

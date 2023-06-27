@@ -2,7 +2,7 @@ package day18.solved;
 
 //age validator class
 
-class AgeValidator{
+public class AgeValidator{
 	
 //	validating age if age is greater than 0
 //	if lesser than zero throw IllegalArgumentException
