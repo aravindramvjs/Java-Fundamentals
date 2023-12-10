@@ -39,7 +39,7 @@ public class CalculateDate {
 				
 				long NumberBetween = ChronoUnit.DAYS.between(firstparsedDate, secondparsedDate);
 				
-				System.out.println("The number of days between is "+ Math.abs(NumberBetween));
+				System.out.println("The number of days between is "+ NumberBetween);
 			}
 			catch(DateTimeParseException e){
 				System.out.println("Invalid Date Format");
